@@ -1,12 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Snowfall from '@/components/Snowfall';
+import HeroSection from '@/components/HeroSection';
+import PhotoGallery from '@/components/PhotoGallery';
+import MessageSection from '@/components/MessageSection';
+import AudioPlayer from '@/components/AudioPlayer';
+import Footer from '@/components/Footer';
+import { motion } from 'framer-motion';
 
 const Index = () => {
+  // Replace this with your audio URL when ready
+  const audioUrl = '';
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      {/* Falling snow effect */}
+      <Snowfall />
+
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Photo Gallery */}
+      <PhotoGallery />
+
+      {/* Audio Player Section */}
+      <motion.section
+        className="py-12 md:py-16 px-4 flex justify-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <AudioPlayer audioUrl={audioUrl} />
+      </motion.section>
+
+      {/* Message Section */}
+      <MessageSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
