@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import TwinklingLights from './TwinklingLights';
 import ChristmasOrnament from './ChristmasOrnament';
+import AnimatedChristmasTree from './AnimatedChristmasTree';
+import CandyCaneDecoration from './CandyCaneDecoration';
+import RibbonBanner from './RibbonBanner';
 
 const HeroSection = () => {
   return (
@@ -9,6 +12,10 @@ const HeroSection = () => {
       <div className="absolute top-0 left-0 right-0">
         <TwinklingLights />
       </div>
+
+      {/* Candy cane decorations */}
+      <CandyCaneDecoration position="left" />
+      <CandyCaneDecoration position="right" />
 
       {/* Floating ornaments */}
       <div className="absolute top-24 left-8 md:left-20">
@@ -24,6 +31,24 @@ const HeroSection = () => {
         <ChristmasOrnament color="red" size="sm" delay={0.9} />
       </div>
 
+      {/* Christmas trees on sides */}
+      <motion.div
+        className="absolute bottom-10 left-4 md:left-16 hidden md:block"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 1.5 }}
+      >
+        <AnimatedChristmasTree />
+      </motion.div>
+      <motion.div
+        className="absolute bottom-10 right-4 md:right-16 hidden md:block"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 1.7 }}
+      >
+        <AnimatedChristmasTree />
+      </motion.div>
+
       {/* Main content */}
       <motion.div
         className="text-center z-10"
@@ -31,14 +56,14 @@ const HeroSection = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: 'easeOut' }}
       >
-        {/* Year */}
+        {/* Year ribbon */}
         <motion.div
-          className="font-christmas text-2xl md:text-4xl text-gold mb-4"
-          initial={{ opacity: 0, y: -20 }}
+          className="mb-8"
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Christmas 2024
+          <RibbonBanner text="Christmas 2024" />
         </motion.div>
 
         {/* Main title */}
@@ -59,6 +84,28 @@ const HeroSection = () => {
         >
           X'mas
         </motion.h1>
+
+        {/* Decorative bells */}
+        <motion.div
+          className="flex justify-center gap-4 mb-6 text-3xl md:text-4xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.5 }}
+        >
+          <motion.span
+            animate={{ rotate: [-15, 15, -15] }}
+            transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
+          >
+            🔔
+          </motion.span>
+          <span>🎄</span>
+          <motion.span
+            animate={{ rotate: [15, -15, 15] }}
+            transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
+          >
+            🔔
+          </motion.span>
+        </motion.div>
 
         {/* Subtitle */}
         <motion.p
