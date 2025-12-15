@@ -48,7 +48,7 @@ const Footer = () => {
           Made with love for my precious son
         </p>
         <p className="text-gold/60 text-sm">
-          Christmas 2024
+          Christmas 
         </p>
       </motion.div>
     </footer>

@@ -63,7 +63,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <RibbonBanner text="Christmas 2024" />
+          <RibbonBanner text="Christmas 2025" />
         </motion.div>
 
         {/* Main title */}
